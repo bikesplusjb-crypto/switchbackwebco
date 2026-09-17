@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pricing — Switchback Web Co.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0E0F12;--bg2:#15171C;--card:#1B1E25;--line:#262A33;
+    --text:#f0efed;--mut:#9b9aa3;--orange:#E8732C;--orange2:#C95E1E95;--green:#3DD68C;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 28px;}
+  h1,h2,h3{font-family:'Space Grotesk',sans-serif;font-weight:700;letter-spacing:-.02em;}
+
+  header{padding:34px 0 0;}
+  .brand{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--line);padding-bottom:20px;}
+  .brand .logo{font-family:'Outfit',sans-serif;font-weight:700;font-size:20px;}
+  .brand .logo span{color:var(--orange);}
+  .brand nav{font-size:11px;letter-spacing:.08em;color:var(--mut);text-transform:uppercase;}
+  .topnav{display:flex;gap:18px;}
+  .topnav a{color:var(--mut);text-decoration:none;}
+  .topnav a:hover{color:var(--orange);}
+
+  .hero{padding:70px 0 50px;}
+  .kick{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--orange);margin-bottom:20px;font-weight:600;}
+  .hero h1{font-size:clamp(40px,8vw,74px);line-height:1.0;max-width:15ch;}
+  .hero h1 em{font-style:normal;color:var(--orange);}
+  .hero p{font-size:18px;color:var(--mut);max-width:54ch;margin-top:24px;font-weight:300;}
+
+  .sect-label{display:flex;align-items:center;gap:14px;margin:60px 0 28px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--text);font-weight:600;}
+  .sect-label .num{color:var(--orange);}
+  .sect-label .ln{flex:1;height:1px;background:var(--line);}
+
+  .tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  .tier{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:30px 26px 32px;display:flex;flex-direction:column;position:relative;transition:transform .25s,border-color .25s;}
+  .tier:hover{transform:translateY(-5px);border-color:var(--orange);}
+  .tier.feat{border-color:var(--orange);background:linear-gradient(165deg,#2a1f17,var(--card));}
+  .badge{position:absolute;top:-11px;right:22px;background:var(--orange);color:#1a0f08;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:5px 11px;border-radius:4px;font-weight:700;}
+  .tname{font-family:'Outfit',sans-serif;font-weight:700;font-size:24px;}
+  .tdesc{font-size:13.5px;color:var(--mut);margin-top:7px;min-height:54px;font-weight:300;}
+  .price{font-family:'Outfit',sans-serif;font-weight:700;font-size:34px;margin:18px 0 4px;color:var(--text);}
+  .price small{font-size:14px;font-weight:500;color:var(--mut);}
+  ul{list-style:none;margin-top:18px;}
+  li{font-size:14px;padding:9px 0 9px 24px;position:relative;border-top:1px solid var(--line);color:var(--text);}
+  li:first-child{border-top:none;}
+  li::before{content:"→";position:absolute;left:0;color:var(--orange);}
+
+  .tier-wide{display:flex;gap:30px;align-items:center;background:var(--card);border:2px solid var(--orange);border-radius:10px;padding:30px;margin-top:18px;flex-wrap:wrap;}
+  .tier-wide .tw-l{flex:1.6;min-width:260px;}
+  .tier-wide .tw-r{flex:1;min-width:200px;}
+  .badge-dark{display:inline-block;background:var(--orange);color:#1a0f08;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:5px 11px;border-radius:4px;margin-bottom:12px;font-weight:700;}
+
+  .capable{margin:56px 0 0;background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:42px 34px;}
+  .cap-tag{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--orange);margin-bottom:14px;font-weight:600;}
+  .capable h3{font-size:clamp(28px,5.5vw,42px);line-height:1.0;}
+  .capable h3 em{font-style:normal;color:var(--orange);}
+  .capable > p{font-size:16px;color:var(--mut);margin-top:16px;max-width:60ch;font-weight:300;}
+  .capable > p em{font-style:normal;color:var(--text);}
+  .cap-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:28px;}
+  .cap-item{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:18px;}
+  .cap-item .ci{font-size:22px;}
+  .cap-item b{font-family:'Outfit',sans-serif;display:block;font-size:16px;margin:7px 0 4px;}
+  .cap-item p{font-size:13px;color:var(--mut);font-weight:300;}
+  .cap-proof{margin-top:24px;background:rgba(255,106,43,.1);border-left:3px solid var(--orange);border-radius:6px;padding:18px 20px;font-size:14.5px;color:var(--text);font-weight:300;}
+  .cap-proof .cp-k{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);font-weight:700;}
+  .cap-proof b{font-weight:600;}
+
+  .specialty{margin:56px 0 0;background:linear-gradient(135deg,var(--orange),var(--orange2));color:#1a0f08;border-radius:10px;padding:40px 34px;}
+  .specialty .sp-tag{font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;margin-bottom:14px;opacity:.8;}
+  .specialty h3{font-size:clamp(26px,5vw,38px);line-height:1.02;max-width:18ch;color:#1a0f08;}
+  .specialty h3 em{font-style:normal;text-decoration:underline;}
+  .specialty p{font-size:15.5px;margin-top:16px;max-width:54ch;font-weight:400;}
+  .specialty .sp-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px;}
+  .specialty .sp-tags span{font-size:11px;background:rgba(0,0,0,.15);padding:7px 12px;border-radius:4px;font-weight:500;}
+
+  .care-intro{max-width:60ch;font-size:16px;color:var(--mut);font-weight:300;margin-bottom:30px;}
+  .care-intro b{font-weight:600;color:var(--text);}
+  .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  .plan{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:26px 24px;transition:transform .25s,border-color .25s;}
+  .plan:hover{transform:translateY(-4px);border-color:var(--orange);}
+  .plan .pn{font-family:'Outfit',sans-serif;font-weight:700;font-size:20px;}
+  .plan .pp{font-size:15px;color:var(--orange);font-weight:700;margin:8px 0 4px;}
+  .plan .pp span{color:var(--mut);font-size:12px;font-weight:400;}
+  .plan .pfor{font-size:12.5px;color:var(--mut);font-style:italic;margin-bottom:14px;}
+
+  .fine{margin:56px 0 0;background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:38px 34px;}
+  .fine h3{font-size:22px;margin-bottom:6px;}
+  .fine .fk{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--orange);margin-bottom:18px;font-weight:600;}
+  .fine .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px 36px;margin-top:8px;}
+  .fine .grid div b{font-family:'Outfit',sans-serif;display:block;font-size:15px;margin-bottom:3px;}
+  .fine .grid div p{font-size:13.5px;color:var(--mut);font-weight:300;}
+
+  .cta{text-align:center;padding:72px 0 30px;}
+  .cta h2{font-size:clamp(28px,5vw,46px);line-height:1.05;}
+  .cta h2 em{font-style:normal;color:var(--orange);}
+  .cta a{display:inline-block;margin-top:26px;background:var(--orange);color:#1a0f08;text-decoration:none;font-size:13px;letter-spacing:.1em;text-transform:uppercase;padding:16px 34px;border-radius:6px;transition:.25s;font-weight:700;}
+  .cta a:hover{background:var(--orange2);transform:translateY(-2px);}
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:26px 0 50px;font-size:11px;letter-spacing:.06em;color:var(--mut);text-transform:uppercase;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+  @media(max-width:860px){.tiers,.plans{grid-template-columns:1fr;}.fine .grid{grid-template-columns:1fr;}.cap-grid{grid-template-columns:1fr;}.tier-wide{flex-direction:column;align-items:flex-start;gap:16px;}.brand nav{display:none;}}
+</style>
+</head>
+<body>
+<!-- SITE MENU (17 Sept). One identical menu on every page. Before this, each
+     page had its own header -- a different logo, different links, sometimes
+     none -- so tapping a menu item landed you on a page where the menu had
+     changed shape or vanished, and phones had no menu at all. -->
+<style id="sbn-css">
+.sbn{position:sticky !important;top:0;z-index:1000 !important;background:rgba(14,15,18,.92);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid #262A33;font-family:'Space Grotesk',system-ui,-apple-system,sans-serif;}
+.sbn *{box-sizing:border-box;}
+.sbn-in{max-width:1100px;margin:0 auto;height:62px;padding:0 20px;display:flex;align-items:center;gap:18px;}
+.sbn-brand{display:flex;align-items:center;gap:10px;color:#F2F0EC;text-decoration:none;font-size:14px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;white-space:nowrap;}
+.sbn-brand svg{width:22px;height:22px;stroke:#E8732C;stroke-width:2.6;fill:none;flex-shrink:0;}
+.sbn-brand b{color:#E8732C;}
+.sbn-links{display:flex;align-items:center;gap:22px;margin-left:auto;}
+.sbn-links a{color:#9CA0AB;text-decoration:none;font-size:11.5px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;padding:6px 0;border-bottom:2px solid transparent;white-space:nowrap;}
+.sbn-links a:hover{color:#F2F0EC;}
+.sbn-links a.on{color:#F2F0EC;border-bottom-color:#E8732C;}
+.sbn-cta{margin-left:6px;background:#E8732C;color:#0E0F12 !important;border:0 !important;padding:10px 16px !important;border-radius:7px;font-weight:700 !important;}
+.sbn-cta:hover{background:#C95E1E;}
+.sbn-cta.on{border:0 !important;}
+.sbn-toggle{display:none;margin-left:auto;background:none;border:1px solid #343945;border-radius:8px;width:44px;height:40px;cursor:pointer;align-items:center;justify-content:center;flex-direction:column;gap:5px;}
+.sbn-toggle span{display:block;width:18px;height:2px;background:#F2F0EC;border-radius:2px;transition:transform .2s,opacity .2s;}
+.sbn.open .sbn-toggle span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.sbn.open .sbn-toggle span:nth-child(2){opacity:0;}
+.sbn.open .sbn-toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+@media (max-width:860px){
+  .sbn-toggle{display:flex;}
+  .sbn-links{display:none;position:absolute;top:62px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;margin:0;padding:8px 20px 18px;background:#0E0F12;border-bottom:1px solid #262A33;}
+  .sbn.open .sbn-links{display:flex;}
+  .sbn-links a{font-size:14px;padding:14px 2px;border-bottom:1px solid #1B1E25;}
+  .sbn-links a.on{border-bottom-color:#1B1E25;color:#E8732C;}
+  .sbn-cta{margin:12px 0 0;text-align:center;padding:14px !important;}
+}
+</style>
+<nav class="sbn" id="sbn" aria-label="Main">
+  <div class="sbn-in">
+    <a class="sbn-brand" href="/"><svg viewBox="0 0 24 24"><path d="M2 18 L8 8 L12 14 L18 4 L22 10" stroke-linecap="round" stroke-linejoin="round"/></svg>Switchback<b>.</b></a>
+    <button class="sbn-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="sbn-links"><span></span><span></span><span></span></button>
+    <div class="sbn-links" id="sbn-links">
+      <a href="/">Home</a>
+      <a href="/portfolio.html">Work</a>
+      <a href="/pricing.html">Pricing</a>
+      <a href="/ai.html">AI tools</a>
+      <a href="/preview.html">Free preview</a>
+      <a href="/social-media-plan.html">Free tools</a>
+      <a href="/contact.html" class="sbn-cta">Get a quote</a>
+    </div>
+  </div>
+</nav>
+<script>
+(function(){
+  var nav=document.getElementById('sbn'); if(!nav) return;
+  var path=location.pathname.replace(/\/$/,'/index.html');
+  var tools=['/social-media-plan.html','/ai-tool-guide.html'];
+  nav.querySelectorAll('.sbn-links a').forEach(function(a){
+    var h=a.getAttribute('href');
+    if(h==='/'){ if(path==='/index.html') a.classList.add('on'); return; }
+    if(h===path || (h==='/social-media-plan.html' && tools.indexOf(path)>-1)) a.classList.add('on');
+  });
+  var btn=nav.querySelector('.sbn-toggle');
+  btn.addEventListener('click',function(){
+    var open=nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded',String(open));
+    btn.setAttribute('aria-label',open?'Close menu':'Open menu');
+  });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'){ nav.classList.remove('open'); btn.setAttribute('aria-expanded','false'); } });
+})();
+</script>
+
+<div class="wrap">
+
+  <section class="hero">
+    <div class="kick">Pricing &amp; Care Plans</div>
+    <h1>Built once. <em>Kept</em> sharp.</h1>
+    <p>Every Switchback site is hand-built for the way local businesses actually work — fast, clear, and made to bring in customers. Choose a build, then keep it current with a care plan. No templates dressed up as custom. No surprises.</p>
+  </section>
+
+  <div class="sect-label"><span class="num">01</span> The Build · One-Time<span class="ln"></span></div>
+  <div class="tiers">
+    <div class="tier">
+      <div class="tname">Starter</div>
+      <div class="tdesc">A clean, credible presence for solo operators and trades who need to look legit and get found. One page from $350; a few pages up to $900.</div>
+      <div class="price">$350<small>–900</small></div>
+      <ul><li>One to a few pages</li><li>Mobile-first design</li><li>Contact form</li><li>Basic local SEO</li><li>Google Maps + hours</li></ul>
+    </div>
+    <div class="tier">
+      <div class="tname">Professional</div>
+      <div class="tdesc">A fuller custom site for established businesses that want to stand out — not just exist online.</div>
+      <div class="price">$1,200<small>–1,800</small></div>
+      <ul><li>Multi-page custom build</li><li>Gallery / portfolio</li><li>Lead capture + forms</li><li>Full on-page SEO</li><li>Brand-matched design</li></ul>
+    </div>
+    <div class="tier feat">
+      <div class="badge">Sell Online</div>
+      <div class="tname">Store</div>
+      <div class="tdesc">A full online shop — products, cart, checkout, and payments. For brands ready to sell directly.</div>
+      <div class="price">$1,800<small>–3,000+</small></div>
+      <ul><li>Product setup (10–30+)</li><li>Color / style variants</li><li>Cart + secure checkout</li><li>Payments &amp; shipping</li><li>Inventory management</li></ul>
+    </div>
+  </div>
+
+  <div class="tier-wide">
+    <div class="tw-l">
+      <div class="badge-dark">Premium · Application-Grade</div>
+      <div class="tname" style="font-size:28px;">Custom Application</div>
+      <div class="tdesc" style="min-height:auto;margin-top:8px;">When you need real functionality — databases, logins, live data, automation. Software-grade builds, the kind agencies charge five figures for. Scoped and quoted per project.</div>
+    </div>
+    <div class="tw-r">
+      <div class="price" style="margin:0 0 4px;">$3,500<small>+</small></div>
+      <ul style="margin-top:10px;"><li>Custom database &amp; backend</li><li>User accounts &amp; logins</li><li>Live data &amp; dashboards</li><li>Payments &amp; automation</li><li>Built to scale with you</li></ul>
+    </div>
+  </div>
+
+  <div class="capable">
+    <div class="cap-tag">Beyond Brochure Sites</div>
+    <h3>We build <em>software</em>, not just pages.</h3>
+    <p>Most local web shops drag and drop a template and call it a day. We build the hard stuff — real databases, live data, logins, payments, automation. The kind of thing that's usually an agency-priced project. If your business needs a site that <em>does</em> something, not just sits there, this is where we're different.</p>
+    <div class="cap-grid">
+      <div class="cap-item"><span class="ci">🗄️</span><b>Real databases</b><p>Customer records, inventory, bookings — stored, searchable, live. Not a form that emails you.</p></div>
+      <div class="cap-item"><span class="ci">📊</span><b>Live data &amp; dashboards</b><p>Pull in real-time data and show it. Prices, stats, feeds, client login dashboards.</p></div>
+      <div class="cap-item"><span class="ci">🔐</span><b>Logins &amp; member areas</b><p>User accounts, permissions, members-only content, order history.</p></div>
+      <div class="cap-item"><span class="ci">💳</span><b>Payments &amp; automation</b><p>Take payments, trigger emails, connect revenue tools — wired to work on autopilot.</p></div>
+    </div>
+    <div class="cap-proof"><span class="cp-k">The Proof →</span> We built <a href="https://www.cardgauge.com" target="_blank" rel="noopener" style="color:inherit"><b>CardGauge</b></a>, a live trading-card market platform — custom backend, database, real-time pricing, user scanning, and automated revenue tools, all from scratch. If we can build that, your project is the easy part.</div>
+  </div>
+
+  <div class="specialty">
+    <div class="sp-tag">A Switchback Specialty</div>
+    <h3>We build for the <em>card &amp; collectibles</em> world.</h3>
+    <p>Sports cards, trading cards, hobby shops, breakers, and collectors — it's our home turf. We've built live market tools, collector platforms, and shop sites from the ground up. If you sell, break, grade, or trade cards, you don't have to explain the hobby to us. We already speak it.</p>
+    <div class="sp-tags"><span># Card shop &amp; inventory sites</span><span># Breaker &amp; live-rip pages</span><span># Collector tools &amp; trackers</span><span># Marketplace integrations</span></div>
+  </div>
+
+  <div class="sect-label"><span class="num">02</span> The Care Plan · Monthly<span class="ln"></span></div>
+  <p class="care-intro">A website isn't a billboard you bolt up once and forget. The ones that sell stay current — new products, fresh prices, seasonal updates. <b>A care plan keeps your site working while you run your business.</b> Pick the level that fits how often things change — and you're never locked in.</p>
+  <div class="plans">
+    <div class="plan"><div class="pn">Maintenance</div><div class="pp">$40–60 <span>/ month</span></div><div class="pfor">For sites that change rarely.</div><ul><li>Hosting &amp; uptime checks</li><li>Security monitoring</li><li>Small text &amp; photo fixes</li><li>~2 updates / month</li><li>Turnaround within a week</li></ul></div>
+    <div class="plan"><div class="pn">Growth</div><div class="pp">$90–150 <span>/ month</span></div><div class="pfor">For shops with regular new drops.</div><ul><li>Everything in Maintenance</li><li>Add new products / designs</li><li>Price &amp; seasonal updates</li><li>~5–6 updates / month</li><li>48-hour turnaround</li></ul></div>
+    <div class="plan"><div class="pn">Partner</div><div class="pp">$200–300 <span>/ month</span></div><div class="pfor">For owners who want it handled.</div><ul><li>Everything in Growth</li><li>Unlimited small changes</li><li>24-hour priority turnaround</li><li>Monthly check-in</li><li>Light analytics &amp; SEO</li></ul></div>
+  </div>
+
+  <div class="fine">
+    <div class="fk">The Fine Print, Up Front</div>
+    <h3>What counts, and what doesn't.</h3>
+    <div class="grid">
+      <div><b>One update =</b><p>A text change, photo swap, price edit, or a single product added. Quick, clear, counted fairly.</p></div>
+      <div><b>Separate quote =</b><p>A new page, a redesign, or new functionality. Bigger work gets its own honest estimate.</p></div>
+      <div><b>Pay yearly, save.</b><p>Choose annual billing on any care plan and get two months free. Simpler for you, steadier for both of us.</p></div>
+      <div><b>No lock-in tricks.</b><p>You own your site. Care plans are month-to-month — cancel when it stops earning its keep.</p></div>
+    </div>
+  </div>
+
+  <section class="cta"><h2>Got something to <em>build?</em></h2><a href="/contact.html">Start a Project →</a></section>
+  <footer><span>© Switchback Web Co. · Treasure Coast, Florida</span><span><a href="/" style="color:inherit">Home</a> · <a href="/portfolio.html" style="color:inherit">Portfolio</a> · <a href="/social-media-plan.html" style="color:inherit">Free tools</a> · <a href="/contact.html" style="color:inherit">Contact</a></span></footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Page not found — Switchback Web Co.</title>
+<style>body{margin:0;background:#0E0F12;color:#F2F0EC;font-family:system-ui,sans-serif;min-height:100vh;text-align:center;padding:0}
+.nf{min-height:calc(100vh - 63px);display:flex;align-items:center;justify-content:center;padding:24px}
+a{color:#E8732C}h1{font-size:44px;margin:0 0 10px}p{color:#9CA0AB}</style></head>
+<body>
+<!-- SITE MENU (17 Sept). One identical menu on every page. Before this, each
+     page had its own header -- a different logo, different links, sometimes
+     none -- so tapping a menu item landed you on a page where the menu had
+     changed shape or vanished, and phones had no menu at all. -->
+<style id="sbn-css">
+.sbn{position:sticky !important;top:0;z-index:1000 !important;background:rgba(14,15,18,.92);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid #262A33;font-family:'Space Grotesk',system-ui,-apple-system,sans-serif;}
+.sbn *{box-sizing:border-box;}
+.sbn-in{max-width:1100px;margin:0 auto;height:62px;padding:0 20px;display:flex;align-items:center;gap:18px;}
+.sbn-brand{display:flex;align-items:center;gap:10px;color:#F2F0EC;text-decoration:none;font-size:14px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;white-space:nowrap;}
+.sbn-brand svg{width:22px;height:22px;stroke:#E8732C;stroke-width:2.6;fill:none;flex-shrink:0;}
+.sbn-brand b{color:#E8732C;}
+.sbn-links{display:flex;align-items:center;gap:22px;margin-left:auto;}
+.sbn-links a{color:#9CA0AB;text-decoration:none;font-size:11.5px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;padding:6px 0;border-bottom:2px solid transparent;white-space:nowrap;}
+.sbn-links a:hover{color:#F2F0EC;}
+.sbn-links a.on{color:#F2F0EC;border-bottom-color:#E8732C;}
+.sbn-cta{margin-left:6px;background:#E8732C;color:#0E0F12 !important;border:0 !important;padding:10px 16px !important;border-radius:7px;font-weight:700 !important;}
+.sbn-cta:hover{background:#C95E1E;}
+.sbn-cta.on{border:0 !important;}
+.sbn-toggle{display:none;margin-left:auto;background:none;border:1px solid #343945;border-radius:8px;width:44px;height:40px;cursor:pointer;align-items:center;justify-content:center;flex-direction:column;gap:5px;}
+.sbn-toggle span{display:block;width:18px;height:2px;background:#F2F0EC;border-radius:2px;transition:transform .2s,opacity .2s;}
+.sbn.open .sbn-toggle span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.sbn.open .sbn-toggle span:nth-child(2){opacity:0;}
+.sbn.open .sbn-toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+@media (max-width:860px){
+  .sbn-toggle{display:flex;}
+  .sbn-links{display:none;position:absolute;top:62px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;margin:0;padding:8px 20px 18px;background:#0E0F12;border-bottom:1px solid #262A33;}
+  .sbn.open .sbn-links{display:flex;}
+  .sbn-links a{font-size:14px;padding:14px 2px;border-bottom:1px solid #1B1E25;}
+  .sbn-links a.on{border-bottom-color:#1B1E25;color:#E8732C;}
+  .sbn-cta{margin:12px 0 0;text-align:center;padding:14px !important;}
+}
+</style>
+<nav class="sbn" id="sbn" aria-label="Main">
+  <div class="sbn-in">
+    <a class="sbn-brand" href="/"><svg viewBox="0 0 24 24"><path d="M2 18 L8 8 L12 14 L18 4 L22 10" stroke-linecap="round" stroke-linejoin="round"/></svg>Switchback<b>.</b></a>
+    <button class="sbn-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="sbn-links"><span></span><span></span><span></span></button>
+    <div class="sbn-links" id="sbn-links">
+      <a href="/">Home</a>
+      <a href="/portfolio.html">Work</a>
+      <a href="/pricing.html">Pricing</a>
+      <a href="/ai.html">AI tools</a>
+      <a href="/preview.html">Free preview</a>
+      <a href="/social-media-plan.html">Free tools</a>
+      <a href="/contact.html" class="sbn-cta">Get a quote</a>
+    </div>
+  </div>
+</nav>
+<script>
+(function(){
+  var nav=document.getElementById('sbn'); if(!nav) return;
+  var path=location.pathname.replace(/\/$/,'/index.html');
+  var tools=['/social-media-plan.html','/ai-tool-guide.html'];
+  nav.querySelectorAll('.sbn-links a').forEach(function(a){
+    var h=a.getAttribute('href');
+    if(h==='/'){ if(path==='/index.html') a.classList.add('on'); return; }
+    if(h===path || (h==='/social-media-plan.html' && tools.indexOf(path)>-1)) a.classList.add('on');
+  });
+  var btn=nav.querySelector('.sbn-toggle');
+  btn.addEventListener('click',function(){
+    var open=nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded',String(open));
+    btn.setAttribute('aria-label',open?'Close menu':'Open menu');
+  });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'){ nav.classList.remove('open'); btn.setAttribute('aria-expanded','false'); } });
+})();
+</script>
+<div class="nf"><div><h1>Wrong turn.</h1><p>That page isn't here. Try <a href="/">home</a>, <a href="/portfolio.html">our work</a>, or <a href="/contact.html">get in touch</a>.</p></div></div></body></html>

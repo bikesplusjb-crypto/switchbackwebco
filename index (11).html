@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Switchback Web — Custom websites for local Florida businesses</title>
+<meta name="description" content="Custom one-page and multi-page websites for local Florida businesses. You own your site, no required monthly fees, no lock-in. Built fast, built right, built by a human.">
+<meta property="og:title" content="Switchback Web — Custom websites for local Florida businesses">
+<meta property="og:description" content="Clean, focused websites for local Florida businesses. You own your site. No lock-in.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.switchbackwebco.com/">
+<link rel="canonical" href="https://www.switchbackwebco.com/">
+
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Outfit:wght@400;500;700&display=swap" rel="stylesheet">
+
+<!--
+  MOVED TO RENDER, 17 SEPT 2026. Changes from the Wix version:
+    - prices now match the Pricing page. The homepage said a one-page site
+      was "from $300" and "most projects start under $500", while the Pricing
+      page started at $600. Both now say a one-page site starts at $350.
+    - "No monthly fees" now says the fee is optional: the Pricing page sells
+      care plans from $40/month.
+    - "call, text" -- there is no phone number anywhere on the site, so the
+      promise is reworded to what someone can actually do.
+    - CardGauge: sold-price comps, not "live eBay price comps".
+    - new: a free tools section (Build Your Preview, Social Media Plan,
+      AI Tool Guide), and Pricing and Free tools in the menu and footer.
+    - links are site-relative now that every page is on one host.
+-->
+
+<style>
+:root{
+  --bg:#0E0F12;
+  --bg-2:#15171C;
+  --bg-3:#1B1E25;
+  --line:#262A33;
+  --line-2:#343945;
+  --text:#F2F0EC;
+  --text-2:#9CA0AB;
+  --text-3:#6B707C;
+  --accent:#E8732C;
+  --accent-deep:#C95E1E;
+  --accent-soft:rgba(232,115,44,0.12);
+  --live:#3DD68C;
+  --f-display:'Space Grotesk',system-ui,sans-serif;
+  --f-body:'Outfit',system-ui,sans-serif;
+  --container:1100px;
+  --gutter:24px;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;}
+body{font-family:var(--f-body);background:var(--bg);color:var(--text);line-height:1.5;font-weight:400;}
+
+.bg-glow{position:fixed;top:-200px;right:-150px;width:600px;height:600px;background:radial-gradient(circle,rgba(232,115,44,0.10),transparent 65%);pointer-events:none;z-index:0;}
+.bg-glow.two{top:auto;bottom:-250px;left:-200px;right:auto;width:500px;height:500px;background:radial-gradient(circle,rgba(61,214,140,0.05),transparent 65%);}
+body>*{position:relative;z-index:1;}
+
+.wrap{max-width:var(--container);margin:0 auto;padding:0 var(--gutter);}
+
+/* TOP STRIP */
+.strip{border-bottom:1px solid var(--line);padding:16px var(--gutter);position:sticky;top:0;z-index:100;background:rgba(14,15,18,0.85);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);}
+.strip-inner{max-width:var(--container);margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+.brand{display:flex;align-items:center;gap:11px;font-family:var(--f-display);font-size:14px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--text);text-decoration:none;}
+.brand-glyph{width:22px;height:22px;stroke:var(--accent);stroke-width:2.6;fill:none;}
+.brand .dot{color:var(--accent);}
+.strip-nav{display:flex;align-items:center;gap:22px;margin-left:auto;margin-right:18px;}
+.strip-nav a{font-family:var(--f-display);font-size:11px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:var(--text-2);text-decoration:none;transition:color .2s;}
+.strip-nav a:hover{color:var(--accent);}
+.strip-cta{font-family:var(--f-display);font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--bg);background:var(--accent);text-decoration:none;display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:7px;transition:background 0.2s;white-space:nowrap;}
+.strip-cta:hover{background:var(--accent-deep);}
+.strip-cta svg{width:11px;height:11px;}
+
+/* HERO */
+.hero{padding:96px 0 104px;}
+.hero-grid{display:grid;grid-template-columns:1.55fr 1fr;gap:56px;align-items:center;}
+.hero-eyebrow{font-family:var(--f-display);font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:26px;display:flex;align-items:center;gap:14px;}
+.hero-eyebrow::before{content:'';width:30px;height:1px;background:var(--accent);}
+.hero h1{font-family:var(--f-display);font-size:clamp(40px,6.6vw,78px);font-weight:700;line-height:0.98;letter-spacing:-0.03em;color:var(--text);margin-bottom:28px;}
+.hero h1 em{font-style:normal;color:var(--accent);}
+.hero-sub{font-size:17px;line-height:1.6;color:var(--text-2);max-width:500px;margin-bottom:36px;}
+.hero-actions{display:flex;gap:13px;flex-wrap:wrap;}
+.btn-primary{font-family:var(--f-display);font-size:14px;font-weight:700;letter-spacing:.3px;background:var(--accent);color:var(--bg);border:none;padding:16px 28px;border-radius:8px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:10px;transition:all 0.22s;}
+.btn-primary:hover{background:var(--accent-deep);transform:translateY(-1px);box-shadow:0 10px 30px rgba(232,115,44,0.25);}
+.btn-secondary{font-family:var(--f-display);font-size:14px;font-weight:700;letter-spacing:.3px;background:transparent;color:var(--text);border:1px solid var(--line-2);padding:16px 28px;border-radius:8px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:10px;transition:all 0.22s;}
+.btn-secondary:hover{border-color:var(--accent);color:var(--accent);}
+
+/* HERO ASIDE */
+.hero-aside{border:1px solid var(--line);background:linear-gradient(160deg,var(--bg-2),var(--bg));padding:28px;border-radius:12px;position:relative;overflow:hidden;}
+.hero-aside::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),transparent);}
+.aside-label{font-family:var(--f-display);font-size:10px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--accent);margin-bottom:20px;display:block;}
+.hero-aside h3{font-family:var(--f-display);font-size:20px;font-weight:600;line-height:1.25;color:var(--text);margin-bottom:20px;letter-spacing:-0.01em;}
+.aside-list{list-style:none;}
+.aside-list li{display:flex;align-items:baseline;gap:14px;padding:12px 0;border-top:1px solid var(--line);font-size:14px;color:var(--text);font-weight:500;}
+.aside-list li:first-child{border-top:0;padding-top:0;}
+.aside-list li:last-child{padding-bottom:0;}
+.aside-num{font-family:var(--f-display);font-size:10px;font-weight:700;letter-spacing:1px;color:var(--accent);min-width:22px;}
+
+/* SECTIONS */
+section{padding:100px 0;border-top:1px solid var(--line);}
+.section-header{display:grid;grid-template-columns:160px 1fr;gap:36px;margin-bottom:60px;align-items:baseline;}
+.section-eyebrow{font-family:var(--f-display);font-size:11px;font-weight:600;letter-spacing:2px;color:var(--text-3);text-transform:uppercase;}
+.section-title{font-family:var(--f-display);font-size:clamp(28px,4.2vw,46px);font-weight:700;line-height:1.08;letter-spacing:-0.025em;color:var(--text);}
+.section-title em{font-style:normal;color:var(--accent);}
+
+/* OFFERINGS */
+.offerings{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden;}
+.offer-card{background:var(--bg);padding:36px 28px;display:flex;flex-direction:column;transition:background 0.25s;}
+.offer-card:hover{background:var(--bg-2);}
+.offer-tier{font-family:var(--f-display);font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--accent);margin-bottom:18px;}
+.offer-name{font-family:var(--f-display);font-size:23px;font-weight:600;color:var(--text);margin-bottom:14px;line-height:1.15;letter-spacing:-0.015em;}
+.offer-price{font-family:var(--f-display);font-size:15px;color:var(--accent);margin-bottom:20px;font-weight:500;}
+.offer-desc{font-size:14.5px;color:var(--text-2);line-height:1.65;flex:1;}
+.offer-foot{text-align:center;margin-top:26px;}
+.offer-foot a{font-family:var(--f-display);font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--text);text-decoration:none;display:inline-flex;align-items:center;gap:8px;padding:14px 26px;border:1px solid var(--line-2);border-radius:8px;transition:all .2s;}
+.offer-foot a:hover{border-color:var(--accent);color:var(--accent);}
+
+/* REASONS */
+.reasons{display:grid;grid-template-columns:repeat(2,1fr);gap:44px 60px;}
+.reason{display:grid;grid-template-columns:50px 1fr;gap:20px;align-items:start;}
+.reason-num{font-family:var(--f-display);font-size:34px;font-weight:700;color:var(--accent);line-height:1;letter-spacing:-0.02em;}
+.reason h3{font-family:var(--f-display);font-size:20px;font-weight:600;color:var(--text);margin-bottom:10px;line-height:1.2;letter-spacing:-0.01em;}
+.reason p{font-size:14.5px;color:var(--text-2);line-height:1.7;}
+
+/* WORK */
+.work-preview{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-bottom:34px;}
+.work-card{border:1px solid var(--line);padding:32px;background:linear-gradient(160deg,var(--bg-2),var(--bg));text-decoration:none;color:inherit;transition:all 0.3s;display:flex;flex-direction:column;border-radius:12px;}
+.work-card:hover{border-color:var(--accent);transform:translateY(-3px);box-shadow:0 18px 40px rgba(0,0,0,0.4);}
+.work-status{font-family:var(--f-display);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:18px;display:flex;align-items:center;gap:9px;}
+.work-status.live{color:var(--live);}
+.work-status::before{content:'';width:7px;height:7px;background:currentColor;border-radius:50%;box-shadow:0 0 8px currentColor;}
+.work-name{font-family:var(--f-display);font-size:27px;font-weight:700;color:var(--text);margin-bottom:8px;line-height:1.1;letter-spacing:-0.02em;}
+.work-meta{font-family:var(--f-display);font-size:11px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:var(--text-3);margin-bottom:18px;}
+.work-desc{font-size:14.5px;color:var(--text-2);line-height:1.65;margin-bottom:24px;flex:1;}
+.work-arrow{font-family:var(--f-display);font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);display:inline-flex;align-items:center;gap:8px;}
+.view-all{text-align:center;}
+.view-all a{font-family:var(--f-display);font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--text);text-decoration:none;display:inline-flex;align-items:center;gap:8px;padding:14px 26px;border:1px solid var(--line-2);border-radius:8px;transition:all 0.2s;}
+.view-all a:hover{border-color:var(--accent);color:var(--accent);}
+
+/* FREE TOOLS */
+.tools{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+.tool-card{border:1px solid var(--line);border-radius:12px;padding:28px 24px;background:var(--bg-2);text-decoration:none;color:inherit;display:flex;flex-direction:column;transition:all .25s;}
+.tool-card:hover{border-color:var(--accent);transform:translateY(-2px);}
+.tool-tag{font-family:var(--f-display);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--live);margin-bottom:14px;}
+.tool-name{font-family:var(--f-display);font-size:20px;font-weight:700;color:var(--text);margin-bottom:10px;line-height:1.2;letter-spacing:-0.01em;}
+.tool-desc{font-size:14px;color:var(--text-2);line-height:1.6;flex:1;margin-bottom:18px;}
+.tool-go{font-family:var(--f-display);font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);}
+
+/* AI TEASER */
+.ai-teaser-sec{padding:100px 0;border-top:1px solid var(--line);}
+.teaser-card{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:14px;background:linear-gradient(160deg,var(--bg-2),var(--bg));padding:52px 48px;display:grid;grid-template-columns:1.6fr 1fr;gap:48px;align-items:center;}
+.teaser-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),transparent);}
+.teaser-card::after{content:'';position:absolute;top:-120px;right:-80px;width:380px;height:380px;background:radial-gradient(circle,rgba(232,115,44,0.12),transparent 65%);pointer-events:none;}
+.teaser-eyebrow{font-family:var(--f-display);font-size:11px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--accent);margin-bottom:20px;display:flex;align-items:center;gap:10px;}
+.teaser-eyebrow .badge{font-size:9px;letter-spacing:1.5px;color:var(--live);border:1px solid rgba(61,214,140,0.35);background:rgba(61,214,140,0.08);border-radius:99px;padding:3px 9px;}
+.teaser-card h2{font-family:var(--f-display);font-size:clamp(26px,3.6vw,40px);font-weight:700;line-height:1.05;letter-spacing:-0.025em;color:var(--text);margin-bottom:16px;position:relative;}
+.teaser-card h2 em{font-style:normal;color:var(--accent);}
+.teaser-card p{font-size:15px;color:var(--text-2);line-height:1.65;max-width:46ch;margin-bottom:30px;position:relative;}
+.teaser-btn{font-family:var(--f-display);font-size:14px;font-weight:700;letter-spacing:.3px;background:var(--accent);color:var(--bg);text-decoration:none;display:inline-flex;align-items:center;gap:10px;padding:16px 28px;border-radius:8px;transition:all 0.22s;position:relative;}
+.teaser-btn:hover{background:var(--accent-deep);transform:translateY(-1px);box-shadow:0 10px 30px rgba(232,115,44,0.25);}
+.teaser-list{list-style:none;position:relative;}
+.teaser-list li{display:flex;align-items:baseline;gap:14px;padding:13px 0;border-top:1px solid var(--line);font-size:14px;font-weight:500;color:var(--text);}
+.teaser-list li:first-child{border-top:0;padding-top:0;}
+.teaser-list .num{font-family:var(--f-display);font-size:10px;font-weight:700;letter-spacing:1px;color:var(--accent);min-width:22px;}
+
+/* CTA */
+.cta-section{padding:120px 0;border-top:1px solid var(--line);text-align:center;background:linear-gradient(180deg,var(--bg),var(--bg-2));}
+.cta-eyebrow{font-family:var(--f-display);font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:24px;}
+.cta-section h2{font-family:var(--f-display);font-size:clamp(34px,5.2vw,58px);font-weight:700;line-height:1.02;letter-spacing:-0.03em;color:var(--text);margin-bottom:20px;max-width:700px;margin-left:auto;margin-right:auto;}
+.cta-section h2 em{font-style:normal;color:var(--accent);}
+.cta-section p{font-size:16px;color:var(--text-2);max-width:540px;margin:0 auto 36px;line-height:1.6;}
+
+/* FOOTER */
+footer{border-top:1px solid var(--line);padding:46px var(--gutter) 36px;background:var(--bg);}
+.foot{max-width:var(--container);margin:0 auto;display:flex;justify-content:space-between;align-items:baseline;gap:32px;flex-wrap:wrap;}
+.foot-left{font-family:var(--f-display);font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-3);}
+.foot-left b{color:var(--text);}
+.foot-links{display:flex;gap:24px;flex-wrap:wrap;font-family:var(--f-display);font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;}
+.foot-links a{color:var(--text);text-decoration:none;transition:color 0.2s;}
+.foot-links a:hover{color:var(--accent);}
+
+@media (max-width:800px){
+  .strip-nav{display:none;}
+  .hero{padding:60px 0 76px;}
+  .hero-grid{grid-template-columns:1fr;gap:40px;}
+  .section-header{grid-template-columns:1fr;gap:12px;margin-bottom:40px;}
+  section{padding:64px 0;}
+  .offerings{grid-template-columns:1fr;}
+  .reasons{grid-template-columns:1fr;gap:32px;}
+  .work-preview{grid-template-columns:1fr;}
+  .tools{grid-template-columns:1fr;}
+  .ai-teaser-sec{padding:64px 0;}
+  .teaser-card{grid-template-columns:1fr;gap:30px;padding:36px 26px;}
+  .cta-section{padding:80px 0;}
+  .foot{flex-direction:column;align-items:flex-start;gap:16px;}
+}
+</style>
+</head>
+<body>
+<!-- SITE MENU (17 Sept). One identical menu on every page. Before this, each
+     page had its own header -- a different logo, different links, sometimes
+     none -- so tapping a menu item landed you on a page where the menu had
+     changed shape or vanished, and phones had no menu at all. -->
+<style id="sbn-css">
+.sbn{position:sticky !important;top:0;z-index:1000 !important;background:rgba(14,15,18,.92);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid #262A33;font-family:'Space Grotesk',system-ui,-apple-system,sans-serif;}
+.sbn *{box-sizing:border-box;}
+.sbn-in{max-width:1100px;margin:0 auto;height:62px;padding:0 20px;display:flex;align-items:center;gap:18px;}
+.sbn-brand{display:flex;align-items:center;gap:10px;color:#F2F0EC;text-decoration:none;font-size:14px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;white-space:nowrap;}
+.sbn-brand svg{width:22px;height:22px;stroke:#E8732C;stroke-width:2.6;fill:none;flex-shrink:0;}
+.sbn-brand b{color:#E8732C;}
+.sbn-links{display:flex;align-items:center;gap:22px;margin-left:auto;}
+.sbn-links a{color:#9CA0AB;text-decoration:none;font-size:11.5px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;padding:6px 0;border-bottom:2px solid transparent;white-space:nowrap;}
+.sbn-links a:hover{color:#F2F0EC;}
+.sbn-links a.on{color:#F2F0EC;border-bottom-color:#E8732C;}
+.sbn-cta{margin-left:6px;background:#E8732C;color:#0E0F12 !important;border:0 !important;padding:10px 16px !important;border-radius:7px;font-weight:700 !important;}
+.sbn-cta:hover{background:#C95E1E;}
+.sbn-cta.on{border:0 !important;}
+.sbn-toggle{display:none;margin-left:auto;background:none;border:1px solid #343945;border-radius:8px;width:44px;height:40px;cursor:pointer;align-items:center;justify-content:center;flex-direction:column;gap:5px;}
+.sbn-toggle span{display:block;width:18px;height:2px;background:#F2F0EC;border-radius:2px;transition:transform .2s,opacity .2s;}
+.sbn.open .sbn-toggle span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.sbn.open .sbn-toggle span:nth-child(2){opacity:0;}
+.sbn.open .sbn-toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+@media (max-width:860px){
+  .sbn-toggle{display:flex;}
+  .sbn-links{display:none;position:absolute;top:62px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;margin:0;padding:8px 20px 18px;background:#0E0F12;border-bottom:1px solid #262A33;}
+  .sbn.open .sbn-links{display:flex;}
+  .sbn-links a{font-size:14px;padding:14px 2px;border-bottom:1px solid #1B1E25;}
+  .sbn-links a.on{border-bottom-color:#1B1E25;color:#E8732C;}
+  .sbn-cta{margin:12px 0 0;text-align:center;padding:14px !important;}
+}
+</style>
+<nav class="sbn" id="sbn" aria-label="Main">
+  <div class="sbn-in">
+    <a class="sbn-brand" href="/"><svg viewBox="0 0 24 24"><path d="M2 18 L8 8 L12 14 L18 4 L22 10" stroke-linecap="round" stroke-linejoin="round"/></svg>Switchback<b>.</b></a>
+    <button class="sbn-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="sbn-links"><span></span><span></span><span></span></button>
+    <div class="sbn-links" id="sbn-links">
+      <a href="/">Home</a>
+      <a href="/portfolio.html">Work</a>
+      <a href="/pricing.html">Pricing</a>
+      <a href="/ai.html">AI tools</a>
+      <a href="/preview.html">Free preview</a>
+      <a href="/social-media-plan.html">Free tools</a>
+      <a href="/contact.html" class="sbn-cta">Get a quote</a>
+    </div>
+  </div>
+</nav>
+<script>
+(function(){
+  var nav=document.getElementById('sbn'); if(!nav) return;
+  var path=location.pathname.replace(/\/$/,'/index.html');
+  var tools=['/social-media-plan.html','/ai-tool-guide.html'];
+  nav.querySelectorAll('.sbn-links a').forEach(function(a){
+    var h=a.getAttribute('href');
+    if(h==='/'){ if(path==='/index.html') a.classList.add('on'); return; }
+    if(h===path || (h==='/social-media-plan.html' && tools.indexOf(path)>-1)) a.classList.add('on');
+  });
+  var btn=nav.querySelector('.sbn-toggle');
+  btn.addEventListener('click',function(){
+    var open=nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded',String(open));
+    btn.setAttribute('aria-label',open?'Close menu':'Open menu');
+  });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'){ nav.classList.remove('open'); btn.setAttribute('aria-expanded','false'); } });
+})();
+</script>
+
+
+<div class="bg-glow"></div>
+<div class="bg-glow two"></div>
+
+
+
+<!-- HERO -->
+<div class="wrap">
+  <div class="hero">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-eyebrow">Florida-built · Solo studio · Est. 2026</div>
+        <h1>Websites for the businesses that <em>actually do the work.</em></h1>
+        <p class="hero-sub">Switchback builds clean, focused websites for local Florida businesses — window cleaners, plumbers, contractors, restaurants, anyone small who needs a real online presence. No template bloat, no lock-in. You own your site. We make it look like you mean it.</p>
+        <div class="hero-actions">
+          <a href="/contact.html" class="btn-primary">
+            Get a quote
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 7h10M7 2l5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="/preview.html" class="btn-secondary">Build a free preview</a>
+        </div>
+      </div>
+
+      <aside class="hero-aside">
+        <span class="aside-label">What you get</span>
+        <h3>A site built around your business — not a template.</h3>
+        <ul class="aside-list">
+          <li><span class="aside-num">01</span><span>Custom design</span></li>
+          <li><span class="aside-num">02</span><span>Mobile-first build</span></li>
+          <li><span class="aside-num">03</span><span>Your own domain</span></li>
+          <li><span class="aside-num">04</span><span>No required monthly fees</span></li>
+          <li><span class="aside-num">05</span><span>One-page sites in days</span></li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+</div>
+
+<!-- §01 -->
+<section>
+  <div class="wrap">
+    <div class="section-header">
+      <div class="section-eyebrow">§ 01 — What</div>
+      <h2 class="section-title">Three ways to <em>work together.</em></h2>
+    </div>
+    <div class="offerings">
+      <div class="offer-card">
+        <div class="offer-tier">One-Page Site</div>
+        <div class="offer-name">Focused. Fast.<br>From $350.</div>
+        <div class="offer-price">Usually done in days</div>
+        <p class="offer-desc">A single high-conversion page built around your business. Hours, services, photos, contact, reviews — all in one place. Perfect for service businesses that mostly need to be found and called.</p>
+      </div>
+      <div class="offer-card">
+        <div class="offer-tier">Multi-Page Site</div>
+        <div class="offer-name">More room to tell your story.</div>
+        <div class="offer-price">From $1,200 · quoted on scope</div>
+        <p class="offer-desc">When one page isn't enough — service breakdowns, project galleries, team pages, a blog, an online store. Built clean, mobile-first, easy to update. Priced after a quick conversation about what you need.</p>
+      </div>
+      <div class="offer-card">
+        <div class="offer-tier">Edits &amp; Upkeep</div>
+        <div class="offer-name">Change it when you need to.</div>
+        <div class="offer-price">$55 a change · or a care plan</div>
+        <p class="offer-desc">Update hours, swap photos, add a service. Pay per change with no contract, or pick an optional care plan if your site changes often. Either way, you own the site — we just keep it sharp.</p>
+      </div>
+    </div>
+    <div class="offer-foot"><a href="/pricing.html">See full pricing &amp; care plans →</a></div>
+  </div>
+</section>
+
+<!-- §02 -->
+<section>
+  <div class="wrap">
+    <div class="section-header">
+      <div class="section-eyebrow">§ 02 — Why</div>
+      <h2 class="section-title">Why hire a <em>human</em> instead of a website builder.</h2>
+    </div>
+    <div class="reasons">
+      <div class="reason">
+        <div class="reason-num">01</div>
+        <div>
+          <h3>You own everything.</h3>
+          <p>Your domain stays in your name. Your site can move anywhere. No platform lock-in, no held-hostage situations, no surprise renewal hikes. The site is your asset, not someone else's subscription.</p>
+        </div>
+      </div>
+      <div class="reason">
+        <div class="reason-num">02</div>
+        <div>
+          <h3>Built fast.</h3>
+          <p>Most one-page sites are ready in days, bigger sites in one to three weeks. You're not going to wait a month for a first draft. We agree on direction, we build it, you approve it, it goes live.</p>
+        </div>
+      </div>
+      <div class="reason">
+        <div class="reason-num">03</div>
+        <div>
+          <h3>No monthly tax.</h3>
+          <p>Pay once for the build. After that, pay only when you want a change — or choose a care plan if you'd rather it was handled. Nothing is required, and a care plan can be cancelled any month.</p>
+        </div>
+      </div>
+      <div class="reason">
+        <div class="reason-num">04</div>
+        <div>
+          <h3>Local Florida, real human.</h3>
+          <p>We're on the Treasure Coast. Every message gets a real reply from the person who built your site, usually the same day. No support tickets, no chatbots, no "your request has been received."</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- §03 -->
+<section>
+  <div class="wrap">
+    <div class="section-header">
+      <div class="section-eyebrow">§ 03 — Work</div>
+      <h2 class="section-title">Recent <em>builds.</em></h2>
+    </div>
+    <div class="work-preview">
+      <a href="https://www.cardgauge.com" target="_blank" rel="noopener" class="work-card">
+        <div class="work-status live">Live · cardgauge.com</div>
+        <div class="work-name">CardGauge</div>
+        <div class="work-meta">Trading card market platform · Solo build</div>
+        <p class="work-desc">A full trading-card market platform built from scratch — AI card scanner, real sold-price comps, grading decision tool, collection tracking and accounts. Custom Node/Express backend, database, payments. Live and in use.</p>
+        <span class="work-arrow">Visit site →</span>
+      </a>
+      <a href="https://www.ecowashpros.net" target="_blank" rel="noopener" class="work-card">
+        <div class="work-status live">Live · ecowashpros.net</div>
+        <div class="work-name">EcoWash Professionals</div>
+        <div class="work-meta">Window cleaning · Local services</div>
+        <p class="work-desc">A clean one-page site for a local window-cleaning company — built to bring in calls. Mobile-first, prominent phone and text CTAs, real reviews featured, service-area clarity. Delivered in days, owned by the business.</p>
+        <span class="work-arrow">Visit site →</span>
+      </a>
+    </div>
+    <div class="view-all">
+      <a href="/portfolio.html">View all work →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FREE TOOLS -->
+<section>
+  <div class="wrap">
+    <div class="section-header">
+      <div class="section-eyebrow">§ 04 — Free</div>
+      <h2 class="section-title">Free tools for <em>small businesses.</em></h2>
+    </div>
+    <div class="tools">
+      <a class="tool-card" href="/preview.html">
+        <div class="tool-tag">Free · no signup</div>
+        <div class="tool-name">Build Your Preview</div>
+        <p class="tool-desc">Pick a style, sections and features, and watch a preview of your site build itself. When you like it, send it to us with one tap.</p>
+        <span class="tool-go">Build a preview →</span>
+      </a>
+      <a class="tool-card" href="/social-media-plan.html">
+        <div class="tool-tag">Free · 1 minute</div>
+        <div class="tool-name">Social Media Plan</div>
+        <p class="tool-desc">Answer a few quick questions and get a real plan: which platforms, what to post, and how often — for the time you actually have.</p>
+        <span class="tool-go">Get my plan →</span>
+      </a>
+      <a class="tool-card" href="/ai-tool-guide.html">
+        <div class="tool-tag">Free · plain English</div>
+        <div class="tool-name">AI Tool Guide</div>
+        <p class="tool-desc">Which AI tool should you actually use? A no-hype guide to what each one is good at, and what it's bad at.</p>
+        <span class="tool-go">Read the guide →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- AI TEASER -->
+<div class="ai-teaser-sec">
+  <div class="wrap">
+    <div class="teaser-card">
+      <div>
+        <div class="teaser-eyebrow">New service <span class="badge">AI</span></div>
+        <h2>Now building <em>AI tools</em> for your website.</h2>
+        <p>An AI consultant who actually ships — custom calculators, smart forms, and automations built into your site. Not a slide deck. A working tool you own.</p>
+        <a href="/ai.html" class="teaser-btn">
+          Explore AI builds
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 7h10M7 2l5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+      <ul class="teaser-list">
+        <li><span class="num">01</span><span>Flat pricing</span></li>
+        <li><span class="num">02</span><span>Built in 1–3 weeks</span></li>
+        <li><span class="num">03</span><span>Live, not a prototype</span></li>
+        <li><span class="num">04</span><span>You own it</span></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="wrap">
+    <div class="cta-eyebrow">§ 05 — Talk</div>
+    <h2>Let's build <em>something good.</em></h2>
+    <p>One-page sites start at $350. Tell us about your business and we'll send back an honest estimate within 24 hours.</p>
+    <a href="/contact.html" class="btn-primary">
+      Get a quote
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 7h10M7 2l5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="foot">
+    <div class="foot-left">© 2026 <b>Switchback Web</b> · Florida-built websites</div>
+    <div class="foot-links">
+      <a href="/portfolio.html">Portfolio</a>
+      <a href="/pricing.html">Pricing</a>
+      <a href="/ai.html">AI tools</a>
+      <a href="/social-media-plan.html">Free tools</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
